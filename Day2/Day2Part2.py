@@ -21,16 +21,12 @@ def is_safe(report):
     if check_safety(levels):
         return True
 
-    # Try removing one level
     for i in range(len(levels)):
         modified_levels = levels[:i] + levels[i+1:]
         if check_safety(modified_levels):
             return True
+    return False
 
-    return False  # No valid removal found
-
-
-# Load input and count safe reports
 with open("Day2Input.txt", "r") as file:
     reports = file.readlines()
 
